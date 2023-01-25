@@ -45,8 +45,63 @@
 <div>
     This is a long piece of text to allow horizontal scrolling. This is a long piece of text to allow horizontal scrolling. This is a long piece of text to allow horizontal scrolling. This is a long piece of text to allow horizontal scrolling.
 </div>
+    
 
 
+<h3>Test date input</h3>
+<input type="date" id="date-check" name="date-input" 
+       value="2023-01-01" min="2022-01-01" max="2023-12-31">
 
+<h3>Check color input</h3>
+<div>
+    <input type="color" id="color-check" name="color-input" value="#e66465">
+    <label for="head">Color</label>
+</div>
+
+    
+<h3>Test radio buttons</h3>
+<fieldset>
+    <legend>Select a radio button:</legend>
+
+    <div>
+      <input type="radio" id="op1" name="radio-input" value="op1"
+             checked>
+      <label for="huey">Option 1</label>
+    </div>
+
+    <div>
+      <input type="radio" id="op2" name="radio-input" value="op2">
+      <label for="dewey">Option 2</label>
+    </div>
+
+    <div>
+      <input type="radio" id="op3" name="radio-input" value="op3">
+      <label for="louie">Option 3</label>
+    </div>
+</fieldset>
+
+    
+<h3>Test time input</h3>
+<label for="appt">Choose a time:</label>
+
+<input type="time" id="appt" name="appt"
+       min="09:00" max="18:00" required>
+
+    
+<h3>Test check boxes</h3>
+<fieldset>
+    <legend>Choose check boxes:</legend>
+
+    <div>
+      <input type="checkbox" id="checkbox-opt" name="checkbox-input" checked>
+      <label for="scales">Option 1</label>
+    </div>
+
+    <div>
+      <input type="checkbox" id="checkbox-opt" name="checkbox-input">
+      <label for="horns">Option 2</label>
+    </div>
+</fieldset>
+    
 </body>
 </html>
