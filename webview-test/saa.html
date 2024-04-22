@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript">
+    window.addEventListener('load', () => {
+      document.getElementById('test-button').addEventListener('click', () => {
+        document.hasStorageAccess().then(hasAccess => {
+          console.log('hasAccess: ' + hasAccess);
+          if (!hasAccess) {
+            return document.requestStorageAccess();
+          }
+        }).then(_ => {
+          console.log('Now we have first-party storage access!');
+          document.cookie = "foo=bar";
+          console.log(`document.cookie: ${document.cookie}`);
+        }).catch(_ => {
+          console.log('error');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+<h2>SAA Page </h2>
+<button id="test-button">Test</button>
+</body>
+</html>
+</html>
