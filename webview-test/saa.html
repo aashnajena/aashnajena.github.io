@@ -39,7 +39,7 @@
       document.getElementById('write-cookie').addEventListener('click', () => {
         document.hasStorageAccess().then(hasAccess => {
           console.log('Write cookie: hasAccess: ' + hasAccess);
-          document.cookie = "some=cookie";
+          document.cookie = "some=cookie; samesite=none; secure";
           console.log(`Write cookie: document.cookie: ${document.cookie}`);
         }).catch(_ => {
           console.log('error');
@@ -51,7 +51,7 @@
       document.getElementById('write-cookie-1p').addEventListener('click', () => {
         document.hasStorageAccess().then(hasAccess => {
           console.log('Write cookie: hasAccess: ' + hasAccess);
-          document.cookie = "foo=bar";
+          document.cookie = "foo=bar; samesite=none; secure";
           console.log(`Write cookie: document.cookie: ${document.cookie}`);
         }).catch(_ => {
           console.log('error');
