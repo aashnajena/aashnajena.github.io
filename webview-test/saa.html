@@ -4,14 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript">
     window.addEventListener('load', () => {
-      document.getElementById('write-cookie').addEventListener('click', () => {
+      document.getElementById('write-cookie-1p').addEventListener('click', () => {
         document.hasStorageAccess().then(hasAccess => {
           console.log('hasAccess: ' + hasAccess);
-          if (!hasAccess) {
-            return document.requestStorageAccess();
-          }
         }).then(_ => {
-          console.log('Now we have first-party storage access!');
+          console.log('Writing cookie from 1P context');
           document.cookie = "foo=bar";
           console.log(`document.cookie: ${document.cookie}`);
         }).catch(_ => {
@@ -34,12 +31,30 @@
         });
       });
     });
+    window.addEventListener('load', () => {
+      document.getElementById('write-cookie-3p').addEventListener('click', () => {
+        document.hasStorageAccess().then(hasAccess => {
+          console.log('hasAccess: ' + hasAccess);
+          if (!hasAccess) {
+            return document.requestStorageAccess();
+          }
+        }).then(_ => {
+          console.log('Now we have first-party storage access!');
+          console.log('Writing cookie from 3P context');
+          document.cookie = "baz=jen";
+          console.log(`document.cookie: ${document.cookie}`);
+        }).catch(_ => {
+          console.log('error');
+        });
+      });
+    });
   </script>
 </head>
 <body>
 <h2>SAA Page </h2>
-<button id="write-cookie">Write Cookie foo=bar</button>
-<button id="access-cookie">Access Cookie foo=bar</button>
+<button id="write-cookie-1p">Write Cookie foo=bar from 1P context</button> <br>
+<button id="access-cookie">Access Cookies</button> <br>
+<button id="write-cookie-3p">Write Cookie baz=jen from 1P context</button> <br>  
 </body>
 </html>
 </html>
