@@ -48,13 +48,48 @@
         });
       });
     });
+
+    window.addEventListener('load', () => {
+      document.getElementById('has-access').addEventListener('click', () => {
+        document.hasStorageAccess().then(hasAccess => {
+          console.log('hasAccess: ' + hasAccess);
+        }).catch(_ => {
+          console.log('error');
+        });
+      });
+    });
+
+    window.addEventListener('load', () => {
+      document.getElementById('read-cookie').addEventListener('click', () => {
+        document.requestStorageAccess().then(hasAccess => {
+          console.log('hasAccess: ' + hasAccess);
+          console.log(`document.cookie: ${document.cookie}`);
+        }).catch(_ => {
+          console.log('error');
+        });
+      });
+    });
+    window.addEventListener('load', () => {
+      document.getElementById('write-cookie').addEventListener('click', () => {
+        document.requestStorageAccess().then(hasAccess => {
+          console.log('hasAccess: ' + hasAccess);
+          document.cookie = "some=cookie";
+          console.log(`document.cookie: ${document.cookie}`);
+        }).catch(_ => {
+          console.log('error');
+        });
+      });
+    });
   </script>
 </head>
 <body>
 <h2>SAA Page </h2>
 <button id="write-cookie-1p">Write Cookie foo=bar from 1P context</button> <br>
 <button id="access-cookie">Access Cookies</button> <br>
-<button id="write-cookie-3p">Write Cookie baz=jen from 3P context</button> <br>  
+<button id="write-cookie-3p">Write Cookie baz=jen from 3P context</button> <br> 
+<button id="has-access">Check Has Access</button> <br>
+<button id="read-cookie">Read Cookies</button> <br>
+<button id="write-cookie">Only write cookie without checking access</button> <br>
 </body>
 </html>
 </html>
