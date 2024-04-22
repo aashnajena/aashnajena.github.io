@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript">
     window.addEventListener('load', () => {
-      document.getElementById('test-button').addEventListener('click', () => {
+      document.getElementById('write-cookie').addEventListener('click', () => {
         document.hasStorageAccess().then(hasAccess => {
           console.log('hasAccess: ' + hasAccess);
           if (!hasAccess) {
@@ -19,11 +19,27 @@
         });
       });
     });
+    window.addEventListener('load', () => {
+      document.getElementById('access-cookie').addEventListener('click', () => {
+        document.hasStorageAccess().then(hasAccess => {
+          console.log('hasAccess: ' + hasAccess);
+          if (!hasAccess) {
+            return document.requestStorageAccess();
+          }
+        }).then(_ => {
+          console.log('Now we have first-party storage access!');
+          console.log(`document.cookie: ${document.cookie}`);
+        }).catch(_ => {
+          console.log('error');
+        });
+      });
+    });
   </script>
 </head>
 <body>
 <h2>SAA Page </h2>
-<button id="test-button">Test</button>
+<button id="write-cookie">Write Cookie foo=bar</button>
+<button id="access-cookie">Access Cookie foo=bar</button>
 </body>
 </html>
 </html>
