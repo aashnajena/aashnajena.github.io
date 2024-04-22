@@ -17,15 +17,9 @@
       });
     });
     window.addEventListener('load', () => {
-      document.getElementById('access-cookie').addEventListener('click', () => {
-        document.hasStorageAccess().then(hasAccess => {
-          console.log('hasAccess: ' + hasAccess);
-          if (!hasAccess) {
-            return document.requestStorageAccess();
-          }
-        }).then(_ => {
-          console.log('Now we have first-party storage access!');
-          console.log(`document.cookie: ${document.cookie}`);
+      document.getElementById('request-access').addEventListener('click', () => {
+        document.requestStorageAccess().then(hasAccess => {
+          console.log('requested storage access');
         }).catch(_ => {
           console.log('error');
         });
@@ -61,7 +55,7 @@
 
     window.addEventListener('load', () => {
       document.getElementById('read-cookie').addEventListener('click', () => {
-        document.requestStorageAccess().then(hasAccess => {
+        document.hasStorageAccess().then(hasAccess => {
           console.log('hasAccess: ' + hasAccess);
           console.log(`document.cookie: ${document.cookie}`);
         }).catch(_ => {
@@ -71,7 +65,7 @@
     });
     window.addEventListener('load', () => {
       document.getElementById('write-cookie').addEventListener('click', () => {
-        document.requestStorageAccess().then(hasAccess => {
+        document.hasStorageAccess().then(hasAccess => {
           console.log('hasAccess: ' + hasAccess);
           document.cookie = "some=cookie";
           console.log(`document.cookie: ${document.cookie}`);
@@ -85,7 +79,7 @@
 <body>
 <h2>SAA Page </h2>
 <button id="write-cookie-1p">Write Cookie foo=bar from 1P context</button> <br>
-<button id="access-cookie">Access Cookies</button> <br>
+<button id="request-access">Request Access to Cookies</button> <br>
 <button id="write-cookie-3p">Write Cookie baz=jen from 3P context</button> <br> 
 <button id="has-access">Check Has Access</button> <br>
 <button id="read-cookie">Read Cookies</button> <br>
