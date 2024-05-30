@@ -6,68 +6,31 @@
 
     window.addEventListener('load', () => {
       document.getElementById('has-access').addEventListener('click', () => {
-        document.hasStorageAccess().then(hasAccess => {
-          console.log('Check Has Access: hasAccess: ' + hasAccess);
-        }).catch(_ => {
-          console.log('error');
-        });
+        document.requestStorageAccessFor("https://aashnajena.github.io/webview-test/saa.html").then(
+          (res) => {
+            // Use storage access
+            Console.log("Got access");
+          },
+          (err) => {
+            // Handle errors
+            Console.log("Got errors");
+          },
       });
     });
     
-    window.addEventListener('load', () => {
-      document.getElementById('request-access').addEventListener('click', () => {
-        document.requestStorageAccess().then(hasAccess => {
-          console.log('requested storage access');
-        }).catch(_ => {
-          console.log('error');
-        });
-      });
-    });
 
-    window.addEventListener('load', () => {
-      document.getElementById('read-cookie').addEventListener('click', () => {
-        document.hasStorageAccess().then(hasAccess => {
-          console.log('Read cookie: hasAccess: ' + hasAccess);
-          console.log(`Read cookie: document.cookie: ${document.cookie}`);
-        }).catch(_ => {
-          console.log('error');
-        });
-      });
-    });
-    
-    window.addEventListener('load', () => {
-      document.getElementById('write-cookie').addEventListener('click', () => {
-        document.hasStorageAccess().then(hasAccess => {
-          console.log('Write cookie: hasAccess: ' + hasAccess);
-          document.cookie = "some=cookie; samesite=none; secure";
-          console.log(`Write cookie: document.cookie: ${document.cookie}`);
-        }).catch(_ => {
-          console.log('error');
-        });
-      });
-    });
-
-    window.addEventListener('load', () => {
-      document.getElementById('write-cookie-1p').addEventListener('click', () => {
-        document.hasStorageAccess().then(hasAccess => {
-          console.log('Write cookie: hasAccess: ' + hasAccess);
-          document.cookie = "foo=bar; samesite=none; secure";
-          console.log(`Write cookie: document.cookie: ${document.cookie}`);
-        }).catch(_ => {
-          console.log('error');
-        });
-      });
-    });
     
   </script>
 </head>
 <body>
 <h2>SAA Page</h2>
-<button id="has-access">Check Has Access</button> <br>
-<button id="request-access">Request Access to Cookies</button> <br>
+<button id="has-access">Request Storage Access For</button> <br>
+<!-- <button id="request-access">Request Access to Cookies</button> <br>
 <button id="read-cookie">Read Cookies</button> <br>
 <button id="write-cookie">Write cookie some=cookie</button> <br>
-<button id="write-cookie-1p">Write Cookie foo=bar</button> <br>
+<button id="write-cookie-1p">Write Cookie foo=bar</button> <br> -->
+
+  <iframe src="webview-test/saa.html" height="500" width="500" title="Iframe Example"></iframe>
 </body>
 </html>
 </html>
