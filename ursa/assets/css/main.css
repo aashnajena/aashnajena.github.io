@@ -1626,7 +1626,8 @@ input, select, textarea {
 				}
 
 				.row > .col-12-mobile {
-					width: 100%;
+					width: 80%;
+        			margin-left: 10%;
 				}
 
 				.row > .off-12-mobile {
