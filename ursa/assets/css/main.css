@@ -84,7 +84,7 @@ input, select, textarea {
 
 	body {
 		background: #fff;
-		font-family: 'Georgia';
+		font-family: "Marcellus", serif;
 		font-size: 19pt;
 		font-weight: 300;
 		line-height: 1.75em;
@@ -103,7 +103,7 @@ input, select, textarea {
 		}
 
 	input, textarea, select {
-		font-family: 'Marcellus Pt Serif', sans-serif;
+		font-family: "Marcellus", serif;
 		font-size: 19pt;
 		font-weight: 300;
 		line-height: 1.75em;
@@ -2024,7 +2024,7 @@ input, select, textarea {
 			text-rendering: auto;
 			line-height: 1;
 			text-transform: none !important;
-			font-family: 'Marcellus Pt Serif';
+			font-family: "Marcellus", serif;
 			font-weight: 400;
 		}
 
@@ -2041,7 +2041,7 @@ input, select, textarea {
 		}
 
 		.icon.brands:before {
-			font-family: 'Marcellus Pt Serif';
+			font-family: "Marcellus", serif;
 		}
 
 /* Header */
@@ -2488,7 +2488,7 @@ input, select, textarea {
 						text-rendering: auto;
 						line-height: 1;
 						text-transform: none !important;
-						font-family: 'Marcellus Pt Serif';
+						font-family: "Marcellus", serif;
 						font-weight: 900;
 					}
 
